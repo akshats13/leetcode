@@ -1,0 +1,21 @@
+class Solution {
+public:
+ bool cmp(pair<string,int>& p,pair<string,int>& q){
+     return p.second<q.second;
+ }
+
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+        vector<vector<string>> ans;
+        unordered_map<string,vector<string>> mp;
+        int sum=0;
+        for(auto elm:strs){
+            string curr=elm;
+            sort(elm.begin(),elm.end());
+            mp[elm].push_back(curr);
+        }
+        for(auto elm:mp){
+            ans.push_back(elm.second);
+        }
+        return ans;
+}
+};
